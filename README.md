@@ -1,3 +1,32 @@
+# Deploying a Laravel Website: 
+
+## sudo command: 
+sudo stands for "super user do". It's a command that is primarily used for Unix-based operating systems such as Linus and macOS.
+sudo allows authorized users to execute commands as another user, typically the root user, which has full system privileges. 
+It is often used in shell scripts and other automated process to perform administrative tasks that require elevated privileges, such as installing software, modifying system settings, or accessing protected files. 
+The syntax for using the sudo command is typically sudo [command].
+
+Here are some common use cases of sudo:
+
+* Installing and updating software
+* Modifying system settings
+* Accessing protected files
+* Performing system maintenance tasks
+
+## apt-get command: 
+The apt-get command is a package management tool for Debian-based Linux distributions such as Ubuntu, which allows users to install, upgrade, and remove software packages on their system.
+
+Here are some of the common use cases of apt-get:
+
+* Installing new packages: apt-get install <package-name> can be used to download and install a new software package from the configured repositories.
+* Upgrading packages: apt-get upgrade can be used to download and install the latest version of all packages on the system.
+* Removing packages: apt-get remove <package-name> can be used to remove a package from the system.
+* Updating package information: apt-get update can be used to refresh the package database on the system, so that the latest information about available packages can be retrieved.
+* Resolving package dependencies: apt-get automatically resolves dependencies when installing or upgrading packages, ensuring that all required packages are installed on the system.
+  
+The apt-get command is a powerful tool for managing software packages on a Linux system, and is often used by system administrators to ensure that their servers have the latest security updates and software packages installed.
+  
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
