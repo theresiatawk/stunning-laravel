@@ -1,6 +1,8 @@
 # Deploying a Laravel Website: 
 
-## sudo command: 
+## Checkpoint 1: 
+
+### sudo command:
 sudo stands for "super user do". It's a command that is primarily used for Unix-based operating systems such as Linus and macOS.
 sudo allows authorized users to execute commands as another user, typically the root user, which has full system privileges. 
 It is often used in shell scripts and other automated process to perform administrative tasks that require elevated privileges, such as installing software, modifying system settings, or accessing protected files. 
@@ -13,7 +15,7 @@ Here are some common use cases of sudo:
 * Accessing protected files
 * Performing system maintenance tasks
 
-## apt-get command: 
+### apt-get command: 
 The apt-get command is a package management tool for Debian-based Linux distributions such as Ubuntu, which allows users to install, upgrade, and remove software packages on their system.
 
 Here are some of the common use cases of apt-get:
@@ -25,7 +27,176 @@ Here are some of the common use cases of apt-get:
 * Resolving package dependencies: apt-get automatically resolves dependencies when installing or upgrading packages, ensuring that all required packages are installed on the system.
   
 The apt-get command is a powerful tool for managing software packages on a Linux system, and is often used by system administrators to ensure that their servers have the latest security updates and software packages installed.
-  
+
+### commands used: 
+```
+sudo apt-get install apache2
+```
+```
+sudo apt-get install mysql-server
+```
+```
+sudo apt-get install php-mysql
+```
+```
+sudo apt-get install php
+```
+```
+sudo apt-get install libapache2-mod-php
+```
+```
+sudo apt-get install php-mcrypt
+```
+```
+sudo apt-get install php-pear
+```
+```
+sudo apt-get install curl
+```
+```
+sudo apt-get install php-curl
+```
+```
+sudo apt-get install php-cli
+```
+```
+sudo apt-get install git
+```
+```
+sudo a2emod rewrite
+```
+```
+sudo service apache2 restart
+```
+
+---
+## Checkpoint 2:
+
+### commands used: 
+```
+cd /var/www/html
+```
+```
+pwd
+```
+```
+sudo git clone https://github.com/theresiatawk/stunning-laravel.git
+```
+---
+## Checkpoint 3:
+
+### commands used:
+
+The following command is incorrect: 
+```
+curl -sS https://getcomposer.org/installer | sudo php - - install-dir=/usr/local/bin - filename=composer
+```
+To correct it we ommit the space between dashes: 
+```
+curl -sS https://getcomposer.org/installer | sudo php -- install-dir=/usr/local/bin - filename=composer
+```
+```
+sudo composer install
+```
+---
+## Checkpoint 4:
+### commands used: 
+```
+pwd
+```
+```
+cat ./.env.example | sudo tee ./.env
+```
+Edit the .env file using vim and change the APP_NAME value to ScriptingProject:
+```
+sudo vim .env
+```
+Generate an APP_KEY:
+```
+sudo php artisan key:generate
+```
+
+---
+## Checkpoint 5:
+### commands used: 
+```
+apache2 -v
+```
+```
+which apache2
+```
+```
+cd ../../etc/apache2
+```
+```
+ls
+```
+Edit the apache2.conf file using vim and add to it the following code 
+`
+<Directory /var/www/html/stunning-laravel/public>
+Options Indexes FollowSymLinks
+AllowOverride all
+Require all granted
+</Directory>
+`:
+```
+sudo vim apache2.conf
+```
+```
+cd sites-enabled
+```
+Edit the 000-default.conf file using vim and add to it the following code 
+`
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html/stunning-laravel/public/
+`:
+```
+sudo vim 000-default.conf
+```
+```
+sudo service apache2 restart
+```
+## Checkpoint 6:
+### commands used:
+The following command changes the group ownership of the "storage" and "bootstrap/cache" directories (including all files and subdirectories within them) to the "www-data" group.
+
+Here's a breakdown of the command:
+
+* "sudo" runs the command with administrative privileges
+* "chgrp" is a command that changes the group ownership of a file or directory
+* "-R" flag applies the permission changes recursively to all files and subdirectories within the specified directories
+* "www-data" is a common group name used by web servers, such as Apache, to access and manage web content. By changing the group ownership of the "storage" and "bootstrap/cache" directories to "www-data", the web server can access and modify these directories without needing to be the owner.
+* The "storage" directory is typically used by web applications to store files such as session data, logs, and cached data.
+* The "bootstrap/cache" directory is used by the Laravel PHP framework to store compiled application files for faster performance.
+
+```
+sudo chgrp -R www-data storage bootstrap/cache
+```
+The following command grants read, write, and execute permissions to the owner and group of the "storage" and "bootstrap/cache" directories, as well as all files and subdirectories within them.
+
+Here's a breakdown of the command:
+
+* "sudo" runs the command with administrative privileges
+* "chmod" is a command used to change the permissions of files and directories
+* "-R" flag applies the permission changes recursively to all files and subdirectories within the specified directories
+* "ug+rwx" grants read (r), write (w), and execute (x) permissions to the owner (u) and group (g) of the directories
+* "storage bootstrap/cache" specifies the directories to which the permissions are being applied.
+```
+sudo chmod -R ug+rwx storage bootstrap/cache
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
